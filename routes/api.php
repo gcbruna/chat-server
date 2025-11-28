@@ -1,18 +1,14 @@
 <?php
 
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
+use Ably\AblyRest;
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/ably-token', function () {
+    $ably = new AblyRest(env('ABLY_KEY'));
+    $token = $ably->auth->createTokenRequest();
 
-Route::get('/teste', function () {
-    return response()->json([
-        'message' => 'API funcionando!'
-    ]);
+    return response()->json($token);
 });
 
 Route::post('/mensagens', [ChatController::class, 'enviar']);
