@@ -1,5 +1,3 @@
-# ✅ **com SSL + cacert + Ably + Chat**
-
 # 💬 Chat em Tempo Real — Laravel + Vue + Ably
 
 Este projeto é um **backend Laravel** usado para alimentar um chat em tempo real utilizando **Ably Realtime**, consumido por um frontend Vue.
@@ -26,7 +24,7 @@ O Laravel recebe as mensagens e publica no canal `chat-geral` do Ably.
 
 ---
 
-# 🔐 Certificado SSL (cacert.pem)
+## 🔐 Certificado SSL (cacert.pem)
 
 Para que o PHP consiga fazer requisições HTTPS com segurança, incluí o arquivo:
 
@@ -41,7 +39,7 @@ Esse arquivo contém uma lista atualizada de **autoridades certificadoras (CAs)*
 
 ---
 
-# 📦 Instalação do Backend Laravel
+## 📦 Instalação do Backend Laravel
 
 ```bash
 composer install
@@ -63,7 +61,7 @@ php artisan serve
 
 ---
 
-# 🔗 Endpoints da API
+## 🔗 Endpoints da API
 
 ## 🔸 **Gerar Token do Ably**
 
@@ -97,7 +95,7 @@ A API:
 
 ---
 
-# 📡 Como funciona o tempo real
+## 📡 Como funciona o tempo real
 
 O Laravel publica a mensagem assim:
 
@@ -119,7 +117,7 @@ Simples, rápido e eficiente!
 
 ---
 
-# 🧹 Commits recomendados
+## 🧹 Commits recomendados
 
 Como organizei seus arquivos, use commits claros:
 
@@ -139,6 +137,6 @@ git commit -m "Adicionar cacert.pem (certificados SSL do cURL)"
 
 ---
 
-# 📝 Licença
+## 📝 Licença
 
 Este projeto segue a licença **MIT** igual ao Laravel.
