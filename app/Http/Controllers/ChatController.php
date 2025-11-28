@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Events\NovaMensagem;
+use Illuminate\Support\Facades\Log;
+use Ably\AblyRest;
 
 class ChatController extends Controller
 {
@@ -11,10 +12,10 @@ class ChatController extends Controller
     {
         $dados = $request->all();
 
-        \Log::info('Enviando para Ably:', $dados);
+        Log::info('Enviando para Ably:', $dados);
 
         // Publicar no Ably
-        $ably = new \Ably\AblyRest(env('ABLY_KEY'));
+        $ably = new AblyRest(env('ABLY_KEY'));
         $canal = $ably->channels->get('chat-geral');
         $canal->publish('nova-mensagem', $dados);
 
