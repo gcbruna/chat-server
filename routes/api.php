@@ -1,14 +1,11 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ChatController;
 use Ably\AblyRest;
 
-Route::get('/ably-token', function () {
-    $ably = new AblyRest(env('ABLY_KEY'));
-    $token = $ably->auth->createTokenRequest();
+use App\Http\Controllers\AblyTokenController;
+use App\Http\Controllers\ChatController;
 
-    return response()->json($token);
-});
-
-Route::post('/mensagens', [ChatController::class, 'enviar']);
+Route::get('/ably-token', [AblyTokenController::class, 'generate']);
+Route::post('/chat/enviar', [ChatController::class, 'enviar']);
